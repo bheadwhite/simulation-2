@@ -1,9 +1,11 @@
 import React from 'react'
+import { Icon } from 'semantic-ui-react'
 
 export default function Header (){
     return (
         <div>
-            Header
+            <Icon name='home' />
+            Houser
         </div>
     )
 }

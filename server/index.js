@@ -6,15 +6,17 @@ const app = express();
 const cors = require('cors')
 require('dotenv').config()
 
-massive(process.env.CONNECTION_STRING).then(db =>{
-    app.set('db', db);
-    console.log('db is connected')
-} )
-
 app.use(bodyParser.json())
 app.use(cors())
 
 app.get('/api/houses', controller.getHouses)
+app.post('/api/houses', controller.addHouse)
+app.delete('/api/houses/:id', controller.deleteHouse)
 
 const port = 3001
-app.listen(port, ()=>{console.log(`server is now running on ${port}`)})
+
+massive(process.env.CONNECTIONSTRINGGG).then(instance => {
+      app.set('db',instance)
+      console.log('db is connected')
+      app.listen(port, ()=>{console.log(`server is now running on ${port}`)})
+  }).catch(e => console.log(e))

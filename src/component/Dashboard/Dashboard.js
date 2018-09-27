@@ -1,44 +1,48 @@
-import React, { Component } from 'react';
-import House from './../House/House'
-import {Link} from 'react-router-dom'
-import axios from 'axios'
-import {connect } from 'react-redux'//redux
-import {increaseAge} from './../../redux/user'//redux
+import React, { Component } from "react";
+import House from "./../House/House";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { getHouses } from "./../../ducks/user";
 
 class Dashboard extends Component {
-componentDidMount(){
-    this.update()
-}
+  constructor(){
+    super()
+    this.state={
+      houses: []
+    }
+  }
+  updateHouses(){
+    this.props.getHouses().then(resp => {
+      this.setState({
+        houses: resp.value.data
+      })
+    })
+  }
 
-render(){
+  componentDidMount() {
+    this.updateHouses()
+  }
+
+  render() {
     return (
+      <div>
         <div>
-            {
-                this.state.houses.map((house, i) => {
-                    return (
-                        <div key={i}>
-                            <h1>{house.propname}</h1>
-                            <h4>{house.address}</h4>
-                            <h5>{house.city},{house.state}</h5>
-                        </div>)
-                })
-            }
-            <Link to='/wizard'>
-                <button>Add New Property</button>
-                {/* <button onClick={()=>props.increaseUserAge()}>increase Age </button> */}
-            </Link>
-            <House />
+          <Link to="/wizard">
+            <button>Add New Property</button>
+          </Link>
         </div>
-        )
-    }
-}
-function mapStateToProps(state){//redux
-    //********return an object that will be merged into your components props
-    return {
-    }
+        <House houses={this.state.houses} updateHouses={()=>this.updateHouses()} />
+      </div>
+    );
+  }
 }
 
-export default connect(mapStateToProps)(Dashboard)//redux
 
-
-store > mapStateToProps> component >mapDispatchToProps> store
+const mapDispatchToProps = () => {
+  return {
+    getHouses
+  };
+};
+export default connect(null,
+  mapDispatchToProps()
+)(Dashboard)

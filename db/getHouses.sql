@@ -1,1 +1,1 @@
-select * from houses
+select * from houses ;
