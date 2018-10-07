@@ -1,0 +1,96 @@
+@import './../partials/_variables.scss';
+
+.wizard {
+    max-width: 70%;
+    margin: auto;
+    background: $dashBack;
+    height: 547px;
+    .wizHead {
+        height: 75px;
+        display: flex;
+        h1 {
+           margin: auto auto auto 17px; 
+           font-weight: 600;
+        }
+        a {
+            margin: auto 0;
+            button {
+                font-size: 15px;
+                margin: auto 18px auto auto;
+                border: none;
+                font-weight: 600;   
+                padding: 8px;
+                background: $cancelBut;
+            }
+        }
+    }
+    .dataEntry {
+        width: 70%;
+        margin: auto;
+        text-align: start;
+        h3 {
+            margin: 0;
+            margin-top: 14px;
+        }
+        input {
+            border: 1px solid $headBack;
+        }
+        .addressInput {
+            width: 100%;
+        }
+        .cityDiv {
+            display: flex;
+            input {
+                margin-right: 20px;
+            }
+            div:nth-of-type(1) input {
+                width: 160px;
+            }
+            div:nth-of-type(2) input {
+                width: 90px;
+            }
+            div:last-of-type input {
+                width: 100px;
+            }
+        }
+        .fullInput {
+            width: 100%;
+            }
+    }
+    .urlSpace {
+        margin-bottom: 304px;
+    }
+    .nextButton {
+        margin-top: 200px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+                button {
+                    font-size: 18px;
+                    margin: auto 18px auto auto;
+                    margin-right: 40px;
+                    border: none;
+                    font-weight: 300;
+                    letter-spacing: 1px;
+                    padding: 10px;
+                    background: $switchBut;
+                    color: white;
+                }
+            .leftButton {
+                margin-left: 40px;
+            }
+            #completeButton{
+                background: $regBut;
+                margin-right: 40px;
+                color: black;
+                font-weight: 400;
+            }
+            .firstStep {
+                margin: 0;
+                margin-left: auto;
+                margin-right: 40px;
+            }
+
+
+        }
+}

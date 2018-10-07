@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { addHouse, addMortgage } from "./../../ducks/user";
+import { addHouse, addMortgage, reset } from "./../../ducks/user";
 
 class StepThree extends Component {
   constructor(props) {
@@ -15,18 +15,23 @@ class StepThree extends Component {
     e.preventDefault();
     await this.props.addMortgage(this.state);
     await this.props.addHouse(this.props.state).then().catch(e => console.log(e))
+    this.props.reset()
     this.props.history.push('/')
   }
   render() {
     return (
-      <div>
-        <div>Add New Listing</div>
+      <Fragment>
+        <div className='flexRow wizHead'> <h1>Add New Listing</h1>
         <Link to="/">
-          <button>Cancel</button>
+          <button onClick={()=> {this.props.reset()}}>Cancel</button>
         </Link>
+        </div>
         <form>
-          <p>
+          <h3>Recommended rent: ${this.state.mortgage * 1.25}</h3>
+          <div className='dataEntry'>
+          <h3>
             Monthly Mortgage Amount
+            </h3>
             <input
               type="text"
               onChange={e => {
@@ -34,9 +39,9 @@ class StepThree extends Component {
               }}
               value={this.state.mortgage}
             />
-          </p>
-          <p>
+            <h3>
             Desired Monthly Rent
+            </h3>
             <input
               type="text"
               onChange={e => {
@@ -44,20 +49,22 @@ class StepThree extends Component {
               }}
               value={this.state.rent}
             />
-          </p>
+          </div>
+          <div className='nextButton'>
           <Link to="step2">
-            <button
+            <button className='leftButton'
               onClick={() => {
                 this.props.addMortgage(this.state);
               }}>
-              back
+              Previous Step
             </button>
           </Link>
-          <button type="submit" onClick={e => this.handleSubmit(e)}>
+          <button id='completeButton' type="submit" onClick={e => this.handleSubmit(e)}>
             Complete
           </button>
+          </div>
         </form>
-      </div>
+      </Fragment>
     );
   }
 }
@@ -71,7 +78,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = () => {
   return {
     addHouse,
-    addMortgage
+    addMortgage,
+    reset
   };
 };
 export default connect(

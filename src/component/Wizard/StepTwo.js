@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { addURL } from "./../../ducks/user";
+import { addURL, reset} from "./../../ducks/user";
 
 class StepTwo extends Component {
   constructor(props) {
@@ -13,36 +13,42 @@ class StepTwo extends Component {
 
   render() {
     return (
-      <div>
-        <div>Add New Listing</div>
+      <Fragment>
+        <div className="flexRow wizHead"><h1>Add New Listing</h1>
         <Link to="/">
-          <button>Cancel</button>
+          <button onClick={()=> {this.props.reset()}}>Cancel</button>
         </Link>
+        </div>
         <form>
-          House URL:
+        <div className='dataEntry urlSpace'>
+          <h3>Image URL</h3>
           <input
+            className="fullInput"
             type="text"
             onChange={e => {
               this.setState({ img: e.target.value });
             }}
             value={this.state.img}
           />
+          </div>
+          <div className="nextButton">
           <Link to="/wizard">
-            <button onClick={()=> {
+            <button className='leftButton' onClick={()=> {
                 this.props.addURL(this.state.img)
-            }}>Back</button>
+              }}>Previous Step</button>
           </Link>
           <Link to="step3">
-            <button
+            <button type='submit'
               onClick={() => {
                 this.props.addURL(this.state.img);
               }}
             >
-              Next
+              Next Step
             </button>
           </Link>
+          </div>
         </form>
-      </div>
+      </Fragment>
     );
   }
 }
@@ -53,7 +59,8 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = () => {
   return {
-    addURL
+    addURL,
+    reset
   };
 };
 export default connect(

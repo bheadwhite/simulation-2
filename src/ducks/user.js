@@ -1,9 +1,11 @@
 import axios from 'axios' 
+
 const GET_HOUSES =      "GET_HOUSES"
 const ADD_MORTGAGE =    "ADD_MORTGAGE"
 const ADD_ADDRESS =     "ADD_ADDRESS"
 const ADD_URL =         "ADD_URL"
 const ADD_HOUSE =       "ADD_HOUSE"
+const RESET =           "RESET"
 const DELETE_HOUSE =    "DELETE_HOUSE"
 const _FULFILLED =      "_FULFILLED"
 // ,_PENDING       = '_PENDING'
@@ -39,6 +41,8 @@ export default function reducer(state = initialState, action) {
         return Object.assign({}, state, {mortgage: action.payload.mortgage, rent: action.payload.rent})
         case ADD_URL:
         return Object.assign({}, state, {url: action.payload})
+        case RESET: 
+        return Object.assign({}, initialState)
         default:
             return state
     }
@@ -91,5 +95,11 @@ export function addURL(url){
         type: ADD_URL,
         payload: url
     }
+}
+
+export function reset(){
+return {
+    type: RESET
+}
 }
 

@@ -87,6 +87,78 @@ header {
         margin: 0;
         font-size: 36px; }
 
+.wizard {
+  max-width: 70%;
+  margin: auto;
+  background: #e5f4ec;
+  height: 547px; }
+  .wizard .wizHead {
+    height: 75px;
+    display: flex; }
+    .wizard .wizHead h1 {
+      margin: auto auto auto 17px;
+      font-weight: 600; }
+    .wizard .wizHead a {
+      margin: auto 0; }
+      .wizard .wizHead a button {
+        font-size: 15px;
+        margin: auto 18px auto auto;
+        border: none;
+        font-weight: 600;
+        padding: 8px;
+        background: #fec2c2; }
+  .wizard .dataEntry {
+    width: 70%;
+    margin: auto;
+    text-align: start; }
+    .wizard .dataEntry h3 {
+      margin: 0;
+      margin-top: 14px; }
+    .wizard .dataEntry input {
+      border: 1px solid #519872; }
+    .wizard .dataEntry .addressInput {
+      width: 100%; }
+    .wizard .dataEntry .cityDiv {
+      display: flex; }
+      .wizard .dataEntry .cityDiv input {
+        margin-right: 20px; }
+      .wizard .dataEntry .cityDiv div:nth-of-type(1) input {
+        width: 160px; }
+      .wizard .dataEntry .cityDiv div:nth-of-type(2) input {
+        width: 90px; }
+      .wizard .dataEntry .cityDiv div:last-of-type input {
+        width: 100px; }
+    .wizard .dataEntry .fullInput {
+      width: 100%; }
+  .wizard .urlSpace {
+    margin-bottom: 304px; }
+  .wizard .nextButton {
+    margin-top: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; }
+    .wizard .nextButton button {
+      font-size: 18px;
+      margin: auto 18px auto auto;
+      margin-right: 40px;
+      border: none;
+      font-weight: 300;
+      letter-spacing: 1px;
+      padding: 10px;
+      background: #3b5249;
+      color: white; }
+    .wizard .nextButton .leftButton {
+      margin-left: 40px; }
+    .wizard .nextButton #completeButton {
+      background: #8aea92;
+      margin-right: 40px;
+      color: black;
+      font-weight: 400; }
+    .wizard .nextButton .firstStep {
+      margin: 0;
+      margin-left: auto;
+      margin-right: 40px; }
+
 * {
   font-family: 'Open Sans'; }
 

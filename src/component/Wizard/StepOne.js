@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {addAddress} from './../../ducks/user'
+import {addAddress, reset} from './../../ducks/user'
 
 class StepOne extends Component {
     constructor(props){
@@ -15,26 +15,33 @@ class StepOne extends Component {
         }
     }
 
-
 render(){
     return (
-    <div>
-        <div>Add New Listing</div><Link to="/"><button>Cancel</button></Link>
-        <form>
-            Name:
+    <Fragment>
+        <div className="flexRow wizHead"><h1>Add New Listing</h1><Link to="/"><button onClick={()=>this.props.reset()}>Cancel</button></Link></div>
+        <div className="dataEntry">
+            <form>
+            <h3>Property Name</h3>
             <input type='text' onChange={(e)=>{this.setState({name: e.target.value})}} value={this.state.name}></input>
-            Address:
-            <input type='text' onChange={(e)=>{this.setState({address: e.target.value})}} value={this.state.address}></input>
-            City:
-            <input type='text' onChange={(e)=>{this.setState({city: e.target.value})}} value={this.state.city}></input>
-            State:
-            <input type='text' onChange={(e)=>{this.setState({state: e.target.value})}} value={this.state.state}></input>
-            Zipcode:
-            <input type='text' onChange={(e)=>{this.setState({zipcode: e.target.value})}} value={this.state.zipcode}></input>
-            <Link to="/wizard/step2"><button onClick={() => {this.props.addAddress(this.state)}} >Next Step</button></Link>
+            <h3>Address</h3>
+            <input className='addressInput' type='text' onChange={(e)=>{this.setState({address: e.target.value})}} value={this.state.address}></input>
+            <div className='cityDiv'>
+            <div><h3>City</h3>
+            <input type='text' onChange={(e)=>{this.setState({city: e.target.value})}} value={this.state.city}></input></div>
+            <div><h3>State</h3>
+            <input type='text' onChange={(e)=>{this.setState({state: e.target.value})}} value={this.state.state}></input></div>
+            <div><h3>Zip</h3>
+            <input type='text' onChange={(e)=>{this.setState({zipcode: e.target.value})}} value={this.state.zipcode}></input></div>
+            </div>
         </form>
+        </div>
+        <div className='nextButton'>
+        <div></div>
+
+        <Link to="/wizard/step2"><button className="firstStep" onClick={() => {this.props.addAddress(this.state)}} >Next Step</button></Link>
+        </div>
         
-    </div>
+    </Fragment>
     )
 }
 }
@@ -49,7 +56,8 @@ return {
 }
 const mapDispatchToProps = () => {
 return {
-    addAddress
+    addAddress,
+    reset
 }
 }
 export default connect(mapStateToProps, mapDispatchToProps())(StepOne)
