@@ -1,0 +1,57 @@
+@import './../partials/_variables.scss';
+p {
+    padding: 4px;
+}
+
+.houses {
+    h3 {
+        margin-right: auto;
+        width: 181px;
+    }
+    .houseListing {
+        margin: 0 17px 17px 17px;
+        max-height: 175px;
+        background: $listingBack;
+        margin-bottom: 15px;
+        .imgContainer {
+            min-height: 100%;
+            width: 233px;
+            margin: 10px;
+            display: flex;
+            justify-content: flex-start;
+            img {
+                max-height: 100%;
+                width: 233px;
+                margin-right: auto;
+            }
+        }
+        .address {
+            text-align: start;
+            padding: 5px;
+        }
+        .money {
+            text-align: start;
+            padding: 5px;
+            margin: 0 auto;
+            p {
+                margin: 0;
+            }
+        }
+        .button {
+            margin-left: auto;
+            padding: 7px;
+            button {
+                background: none;
+                border: none;
+                font-size: 19px;
+            }
+        }
+    }
+    .flexCol {
+        display: flex;
+        flex-direction: column;
+    }
+    .flexRow {
+        display: flex;
+    }
+}

@@ -1,0 +1,26 @@
+@import './components/_dashboard.scss';
+@import './components/_house.scss';
+@import './components/_header.scss';
+@import './partials/_fonts.scss';
+@import './partials/_variables.scss';
+
+* {
+    font-family: 'Open Sans';
+}
+html {
+    background: $appBack;
+}
+.App {
+    box-sizing: border-box;
+    background: $appBack;
+    height: 100vh;
+    .cancel {
+        background: $cancelBut;
+    }
+    .switch {
+        background: $switchBut;
+    }
+    .reg {
+        background: $regBut;
+    }
+}

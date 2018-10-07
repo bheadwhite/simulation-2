@@ -1,0 +1,24 @@
+@import './../partials/_variables.scss';
+header {
+    background: $headBack;
+    color: white;
+    height: 75px;
+    .container {
+        max-width: 70%;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        .title {
+            display: flex;
+            width: 173px;
+            i {
+                margin: auto;
+            }
+            h1 {
+                margin: 0;
+                font-size: 36px;
+            }
+        }
+    }
+}

@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700");
+.Dashboard {
+  max-width: 70%;
+  margin: auto;
+  background: #e5f4ec;
+  height: 100vh; }
+  .Dashboard .dash {
+    height: 75px;
+    display: flex; }
+    .Dashboard .dash h1 {
+      margin: auto auto auto 17px;
+      font-weight: 300;
+      font-size: 38px; }
+    .Dashboard .dash a {
+      margin: auto 0; }
+    .Dashboard .dash button {
+      font-size: 20px;
+      margin: auto 18px auto auto;
+      border: none;
+      font-weight: 600;
+      padding: 8px; }
+  .Dashboard .hr {
+    margin: 0 17px; }
+
+p {
+  padding: 4px; }
+
+.houses h3 {
+  margin-right: auto;
+  width: 181px; }
+
+.houses .houseListing {
+  margin: 0 17px 17px 17px;
+  max-height: 175px;
+  background: #dedede;
+  margin-bottom: 15px; }
+  .houses .houseListing .imgContainer {
+    min-height: 100%;
+    width: 233px;
+    margin: 10px;
+    display: flex;
+    justify-content: flex-start; }
+    .houses .houseListing .imgContainer img {
+      max-height: 100%;
+      width: 233px;
+      margin-right: auto; }
+  .houses .houseListing .address {
+    text-align: start;
+    padding: 5px; }
+  .houses .houseListing .money {
+    text-align: start;
+    padding: 5px;
+    margin: 0 auto; }
+    .houses .houseListing .money p {
+      margin: 0; }
+  .houses .houseListing .button {
+    margin-left: auto;
+    padding: 7px; }
+    .houses .houseListing .button button {
+      background: none;
+      border: none;
+      font-size: 19px; }
+
+.houses .flexCol {
+  display: flex;
+  flex-direction: column; }
+
+.houses .flexRow {
+  display: flex; }
+
+header {
+  background: #519872;
+  color: white;
+  height: 75px; }
+  header .container {
+    max-width: 70%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    height: 100%; }
+    header .container .title {
+      display: flex;
+      width: 173px; }
+      header .container .title i {
+        margin: auto; }
+      header .container .title h1 {
+        margin: 0;
+        font-size: 36px; }
+
+* {
+  font-family: 'Open Sans'; }
+
+html {
+  background: #afd4c0; }
+
+.App {
+  box-sizing: border-box;
+  background: #afd4c0;
+  height: 100vh; }
+  .App .cancel {
+    background: #fec2c2; }
+  .App .switch {
+    background: #3b5249; }
+  .App .reg {
+    background: #8aea92; }

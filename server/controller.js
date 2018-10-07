@@ -5,16 +5,19 @@ module.exports={
         .catch(err => {console.log(err);res.status(500).send(err)})
     },
     // id, pname, address, img, city, state, zip, mortgage, rent>
-    addHouse: (req, res, next) => {
+    addHouse: async (req, res, next) => {
         const dbInstance = req.app.get('db')
-        const { name, address, city, state, zipcode } = req.body
-        dbInstance.houses.save({
+        const { name, address, city, state, zipcode, url, mortgage, rent } = req.body
+        await dbInstance.houses.save({
             pname: name,
-            address: address,
-            city: city,
-            state: state,
-            zip: zipcode
-        }).then(resp => res.status(200).send('ok'))
+            address,
+            city,
+            state,
+            zip: zipcode,
+            img: url,
+            rent,
+            mortgage
+        }).then(resp => res.status(200).send('ok')).catch(e=>console.log(e))
         // console.log('added a house')
         // res.status(200).send('ok')
     },
