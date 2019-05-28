@@ -18,8 +18,6 @@ module.exports={
             rent,
             mortgage
         }).then(resp => res.status(200).send('ok')).catch(e=>console.log(e))
-        // console.log('added a house')
-        // res.status(200).send('ok')
     },
     deleteHouse: (req, res, next) => {
         const dbInstance = req.app.get('db')
